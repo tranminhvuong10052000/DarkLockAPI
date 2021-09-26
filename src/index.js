@@ -5,6 +5,7 @@ const app = express()
 const port = process.env.POST || 3000
 const morgan = require('morgan')
 const path = require('path')
+const database = require('./configuration/database')
 const router = require('./routers')
 
 app.use(express.json()) // for parsing application/json
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use('/static', express.static(path.join(__dirname, 'public')))
 console.log(path.join(__dirname, 'public'))
 
+database.connect()
 router(app)
 
 app.listen(port, () => {

@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
     "dev": "nodemon --inspect src/index.js",
-    "beautiful": "prettier --single-quote --no-bracket-spacing --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}"
+    "beautiful": "prettier --single-quote --no-bracket-spacing --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
+    "mongoose": "^6.0.7",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1"
@@ -37,7 +39,6 @@
     "src/**/*.{js,json,scss}": "prettier --single-quote --no-bracket-spacing --trailing-comma all --tab-width 4 --write"
   },
   "hooks": {
-  "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged"
   }
-
 }
